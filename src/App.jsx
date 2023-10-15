@@ -4,7 +4,7 @@ import eye from "./assets/eye.png";
 import eye_gif from "./assets/eye.gif";
 import Game from "./components/Game";
 import sound_boot from "./assets/boot.mp3";
-
+import Footer from "./components/Footer";
 import { easeIn, motion } from "framer-motion";
 
 function App() {
@@ -95,6 +95,7 @@ function App() {
           Click anywhere to begin
         </motion.h2>
         <Game />
+        <Footer></Footer>
       </div>
     </>
   );

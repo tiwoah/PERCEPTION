@@ -229,6 +229,16 @@ h2 {
   z-index: 1;
 }
 
+.footer {
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: underline;
+}
+
 @media (max-height: 900px) {
   h1 {
     font-size: 5rem;
@@ -287,5 +297,11 @@ h2 {
   .start {
     font-size: 16px;
     padding: 15px 40px 15px 40px;
+  }
+
+  .footer {
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
