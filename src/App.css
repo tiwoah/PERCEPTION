@@ -239,7 +239,7 @@ h2 {
   text-decoration: underline;
 }
 
-@media (max-height: 900px) {
+@media (max-height: 900px) and (min-width: 800px) {
   h1 {
     font-size: 5rem;
   }
@@ -279,7 +279,7 @@ h2 {
   }
   
   .highscore {
-    
+    top: 12%;
   }
   
   .game {
@@ -297,11 +297,10 @@ h2 {
   .start {
     font-size: 16px;
     padding: 15px 40px 15px 40px;
+    border-radius: 12px;
   }
 
   .footer {
-    right: unset;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 10px;
   }
 }
