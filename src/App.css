@@ -1,16 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap');
 
 html {
   background-color: #22311D;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(74,104,65);
+  background: radial-gradient(circle, rgba(74,104,65,1) 70%, rgb(71, 97, 62) 100%);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.center {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 h1 {
   color: #FFF;
   text-align: center;
   font-family: "Inter", sans-serif;
-  font-size: 100px;
-  /* padding: 20px; */
-  /* transform: rotateZ(30deg); */
+  font-size: 6.2rem;
+  width: fit-content;
+  margin: 0;
+  white-space: nowrap;
+}
+
+h2 {
+  color: #FFF;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.start-hint {
+  color: #FFF;
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translate(-50%, -50%);
+  animation: flash_opacity 2s infinite
+}
+
+.start-hint.animation-stopped {
+  animation: none;
+}
+
+@keyframes flash_opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .eye {
@@ -25,7 +94,15 @@ h1 {
 /*  */
 /* GAME */
 
-.container {
+.game-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.game {
   display: grid;
   grid-template-rows: repeat(3, 145px);
   grid-template-columns: repeat(3, 145px);
@@ -86,9 +163,33 @@ h1 {
 }
 
 .selected {
-  /* background-color: #709C63; */
-  background-color: hsl(106, 23%, 39%);
-  transition: 0.3s;
+  background-color: #709C63;
+  /* background-color: hsl(106, 23%, 39%); */
+  /* transition: 0.3s; */
+}
+
+.dead {
+  background-color: #d16666;
+}
+
+.reveal {
+  background-color: #d16666;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #d16666;
+  }
+  50% {
+    background-color: #709C63;
+  }
+  100% {
+    background-color: #d16666;
+  }
+}
+
+.reveal {
+  animation: flash 1s infinite; /* Flashing animation with a duration of 1 second, repeating infinitely */
 }
 
 /* GAME */
@@ -101,11 +202,17 @@ h1 {
   color: #FFF;
   font-family: "Inter", sans-serif;
   font-size: 40px;
+  font-weight: 800;
   background-color: #709C63;
   border: none;
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 50px 20px 50px;
   display: block;
-  margin: auto;
-  margin-top: 100px;
+  /* margin: auto; */
+  /* margin-top: 100px; */
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  z-index: 1;
 }
