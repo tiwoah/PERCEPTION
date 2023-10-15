@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+html {
+  background-color: #22311D;
+}
+
+h1 {
+  color: #FFF;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 100px;
+  /* padding: 20px; */
+  /* transform: rotateZ(30deg); */
+}
+
+.eye {
+  height: 74px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/* GAME */
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(3, 145px);
+  grid-template-columns: repeat(3, 145px);
+  gap: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.group {
+  display: grid;
+  grid-template-rows: repeat(2, 60px);
+  grid-template-columns: repeat(2, 60px);
+  gap: 6px;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.group-1 {
+  justify-content: end;
+  align-self: flex-end;
+}
+
+.group-2 {
+  align-self: flex-start;
+}
+
+.group-3 {
+  justify-content: start;
+  align-self: flex-end;
+}
+
+.group-4 {
+  justify-content: left;
+}
+
+.group-6 {
+  justify-content: right;
+}
+
+.group-7 {
+  justify-content: flex-end;
+  align-self: flex-start;
+}
+
+.group-8 {
+  align-self: flex-end;
+}
+
+.group-9 {
+  justify-content: left;
+  align-self: flex-start;
+}
+
+.item {
+  background-color: #4a6841;
+  /* outline: white 1px dashed; */
+  /* height: 60px; */
+}
+
+.selected {
+  /* background-color: #709C63; */
+  background-color: hsl(106, 23%, 39%);
+  transition: 0.3s;
+}
+
+/* GAME */
+/*  */
+/*  */
+/*  */
+/*  */
+
+.start {
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  background-color: #709C63;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+}
