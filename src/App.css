@@ -230,6 +230,14 @@ h2 {
 }
 
 @media (max-width: 800px) {
+  .container {
+    height: 100svh;
+  }
+  
+  .overlay {
+    height: 100svh;
+  }
+
   h1 {
     font-size: 2.2rem;
   }
@@ -253,25 +261,10 @@ h2 {
   .group {
     grid-template-rows: repeat(2, 36px);
     grid-template-columns: repeat(2, 36px);
-    gap: 1px;
+    gap: 3.6px;
   }
 
   .start {
-    color: #FFF;
-    font-family: "Inter", sans-serif;
     font-size: 20px;
-    font-weight: 800;
-    background-color: #709C63;
-    border: none;
-    border-radius: 20px;
-    padding: 20px 50px 20px 50px;
-    display: block;
-    /* margin: auto; */
-    /* margin-top: 100px; */
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, -0%);
-    z-index: 1;
   }
 }
