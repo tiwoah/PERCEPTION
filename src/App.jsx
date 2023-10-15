@@ -10,6 +10,9 @@ import { easeIn, motion } from "framer-motion";
 function App() {
   const startHint = useRef(null);
   const [started, setStarted] = useState(false);
+  const [smallHeight, setSmallHeight] = useState(
+    window.innerHeight <= 900 ? true : false
+  );
   console.log("App rendered");
 
   function start() {
@@ -28,7 +31,7 @@ function App() {
     normal: {
       position: "absolute",
       left: "50%",
-      top: "10%",
+      top: smallHeight ? "3%" : "10%",
       transform: "translate(-50%, -0%)",
     },
   };

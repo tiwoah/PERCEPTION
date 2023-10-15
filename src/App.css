@@ -229,6 +229,26 @@ h2 {
   z-index: 1;
 }
 
+@media (max-height: 900px) {
+  h1 {
+    font-size: 5rem;
+  }
+  
+  .eye {
+    height: 54px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .highscore {
+    top: 15%;
+  }
+
+  .start {
+    bottom: 3%;
+  }
+}
+
 @media (max-width: 800px) {
   .container {
     height: 100svh;
@@ -265,6 +285,7 @@ h2 {
   }
 
   .start {
-    font-size: 20px;
+    font-size: 16px;
+    padding: 15px 40px 15px 40px;
   }
 }
