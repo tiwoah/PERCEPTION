@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import eye from "./assets/eye.png";
 import eye_gif from "./assets/eye.gif";
-import Game from "./components/game";
+import Game from "./components/Game";
 import sound_boot from "./assets/boot.mp3";
 
 function App() {
