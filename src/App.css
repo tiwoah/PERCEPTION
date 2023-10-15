@@ -46,6 +46,12 @@ h1 {
   white-space: nowrap;
 }
 
+.eye {
+  height: 74px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 h2 {
   color: #FFF;
   text-align: center;
@@ -82,11 +88,7 @@ h2 {
   }
 }
 
-.eye {
-  height: 74px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+
 
 /*  */
 /*  */
@@ -225,4 +227,51 @@ h2 {
   left: 50%;
   transform: translate(-50%, -0%);
   z-index: 1;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .eye {
+    height: 26px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  
+  .highscore {
+    
+  }
+  
+  .game {
+    grid-template-rows: repeat(3, 87px);
+    grid-template-columns: repeat(3, 87px);
+    gap: 0px;
+  }
+  
+  .group {
+    grid-template-rows: repeat(2, 36px);
+    grid-template-columns: repeat(2, 36px);
+    gap: 1px;
+  }
+
+  .start {
+    color: #FFF;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #709C63;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 50px 20px 50px;
+    display: block;
+    /* margin: auto; */
+    /* margin-top: 100px; */
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    z-index: 1;
+  }
 }
