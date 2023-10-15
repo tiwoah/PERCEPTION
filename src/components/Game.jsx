@@ -88,7 +88,9 @@ export default function Game() {
 
   return (
     <>
-      <span style={{ color: "#FFF" }}>Best score: {highscore}</span>
+      <span className="highscore" style={{ color: "#FFF" }}>
+        BEST SCORE: {highscore}
+      </span>
       <div className="game-container">
         <div className="game" onMouseDown={handleClick}>
           <div className="group group-1">

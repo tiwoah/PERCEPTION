@@ -89,7 +89,7 @@ function App() {
           animate={started ? "normal" : "active"}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          {/* Click anywhere to begin */}
+          Click anywhere to begin
         </motion.h2>
         <Game />
       </div>
