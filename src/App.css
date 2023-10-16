@@ -17,11 +17,18 @@ body, html {
 .overlay {
   width: 100vw;
   height: 100vh;
-  background: rgb(74,104,65);
+  background: hsl(106, 23%, 33%);
   background: radial-gradient(circle, rgba(74,104,65,1) 70%, rgb(71, 97, 62) 100%);
   position: fixed;
   top: 0;
   z-index: 2;
+}
+
+.word-mask {
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
 }
 
 .center {
@@ -29,14 +36,14 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
 
-h1 {
+.title {
   color: #FFF;
   text-align: center;
   font-family: "Inter", sans-serif;
@@ -44,6 +51,8 @@ h1 {
   width: fit-content;
   margin: 0;
   white-space: nowrap;
+  transform-origin: 50% 50%;
+  line-height: 80%;
 }
 
 .eye {
@@ -59,7 +68,10 @@ h2 {
   font-weight: 300;
   font-size: 20px;
   width: fit-content;
+  margin: 0;
   margin-top: 20px;
+  user-select: none;
+  pointer-events: none;
 }
 
 .start-hint {
@@ -69,7 +81,8 @@ h2 {
   left: 50%;
   bottom: 15%;
   transform: translate(-50%, -50%);
-  animation: flash_opacity 2s infinite
+  animation: flash_opacity 2.5s infinite;
+  cursor: default;
 }
 
 .start-hint.animation-stopped {
@@ -104,14 +117,15 @@ h2 {
   z-index: 1;
 }
 
-.highscore {
+.score {
   color: #FFF;
   text-align: center;
   font-family: "Inter", sans-serif;
   position: absolute;
-  top: 22%;
+  top: 160px;
   left: 50%;
   transform: translate(-50%, 0%);
+  white-space: nowrap;
 }
 
 .game {
@@ -175,7 +189,7 @@ h2 {
 }
 
 .selected {
-  background-color: #709C63;
+  background-color: hsl(106, 22%, 50%);
   /* background-color: hsl(106, 23%, 39%); */
   /* transition: 0.3s; */
 }
@@ -213,7 +227,7 @@ h2 {
 .start {
   color: #FFF;
   font-family: "Inter", sans-serif;
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 800;
   background-color: #709C63;
   border: none;
@@ -227,6 +241,158 @@ h2 {
   left: 50%;
   transform: translate(-50%, -0%);
   z-index: 1;
+  cursor: pointer;
+}
+
+.inactive {
+  opacity: 0.1;
+  cursor: default;
+}
+
+.highscore-main {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(34, 49, 29, 0.9);
+  z-index: 3;
+  position: fixed;
+}
+
+.highscore-container {
+  background-color: rgb(74,104,65);
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.highscore-title {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  margin: 20px auto 20px auto;
+}
+
+.close {
+  width: 60px;
+  height: 60px;
+  border: none;
+  color: #FFF;
+  font-size: 35px;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.username-input {
+  width: 250px;
+  height: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  border: 2px rgb(88, 88, 88) solid;
+  outline: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.username-input::placeholder {
+  opacity: 0.2;
+}
+
+.share {
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  background-color: #709C63;
+  border: none;
+  border-radius: 20px;
+  padding: 20px 50px 20px 50px;
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.home-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  position: absolute;
+  right: 110px;
+  top: 50px;
+}
+
+.home-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.leaderboard-button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+
+.leaderboard-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.leaderboard-container {
+  z-index: 1;
+
+  background-color: hsl(105, 26%, 12%);
+  width: 330px;
+  height: 400px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(250px, -50%);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.leaderboard__title {
+  text-transform: uppercase;
+  margin: 20px auto 20px auto;
+}
+
+.leaderboard-item {
+  color: #FFF;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin: auto;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leaderboard-item__username {
+  width: fit-content;
+}
+
+.leaderboard-item__score {
+  width: fit-content;
 }
 
 .footer {
@@ -234,13 +400,13 @@ h2 {
   font-family: "Inter", sans-serif;
   font-size: 12px;
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 6px;
+  right: 8px;
   text-decoration: underline;
 }
 
 @media (max-height: 900px) and (min-width: 800px) {
-  h1 {
+  .title {
     font-size: 5rem;
   }
   
@@ -268,7 +434,7 @@ h2 {
     height: 100svh;
   }
 
-  h1 {
+  .title {
     font-size: 2.2rem;
   }
   
@@ -277,9 +443,17 @@ h2 {
     padding-left: 3px;
     padding-right: 3px;
   }
+
+  h2 {
+    font-size: 0.9rem;
+  }
   
   .highscore {
     top: 12%;
+  }
+
+  .score {
+    top: 60px;
   }
   
   .game {
@@ -300,7 +474,59 @@ h2 {
     border-radius: 12px;
   }
 
+  .highscore-container {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .close {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+  
+  .username-input {
+    width: 220px;
+    height: 40px;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+  }
+
+  .username-input::placeholder {
+    opacity: 0.6;
+  }
+  
+  .share {
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 15px 35px 15px 35px;
+  }
+  
+  .home-button {
+    width: 40px;
+    height: 40px;
+    right: calc(50% + 25px);
+    top: 90px;
+    transform: translate(50%, 0);
+  }
+  
+  .leaderboard-button {
+    width: 40px;
+    height: 40px;
+    right: calc(50% - 25px);
+    top: 90px;
+    transform: translate(50%, 0);
+  }
+  
+  .leaderboard-container {
+    width: 280px;
+    height: 350px;
+    /* transform: translate(250px, -50%); */
+  }
+
   .footer {
     font-size: 10px;
+    bottom: 3px;
+    right: 3px;
   }
 }
