@@ -10,6 +10,10 @@ export const uploadHighscore = async (username, highscore) => {
   const score = highscore;
   const tries = 0;
 
+  // $.getJSON("https://api.db-ip.com/v2/free/self", function (data) {
+  //   console.log(JSON.stringify(data, null, 2));
+  // });
+
   axios
     .post(API_BASE_URL + "/createUser", { id, name, time, mode, score, tries })
     .then((result) => console.log(result))

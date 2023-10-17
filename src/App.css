@@ -327,7 +327,7 @@ h2 {
 .home-button {
   width: 50px;
   height: 50px;
-  background-color: transparent;
+  background-color: #22311D;
   position: absolute;
   right: 110px;
   top: 50px;
@@ -341,7 +341,7 @@ h2 {
 .leaderboard-button {
   width: 50px;
   height: 50px;
-  background-color: transparent;
+  background-color: #22311D;
   position: absolute;
   right: 50px;
   top: 50px;
@@ -416,8 +416,8 @@ h2 {
     padding-right: 3px;
   }
 
-  .highscore {
-    top: 15%;
+  .score {
+    top: 130px;
   }
 
   .start {

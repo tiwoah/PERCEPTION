@@ -13,9 +13,6 @@ export default function Leaderboard({ isCentered }) {
   const fetchLeaderboardData = async () => {
     try {
       const leaderboardData = await getLeaderboard();
-      //   setUsers(leaderboardData);
-      //   console.log("Leaderboard data:", leaderboardData);
-      //   console.log(sortedHighToLowScores(leaderboardData));
       setUsers(sortedHighToLowScores(leaderboardData));
     } catch (error) {
       console.error("Error fetching leaderboard data:", error);
