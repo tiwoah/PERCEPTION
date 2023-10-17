@@ -1,7 +1,7 @@
 import React from "react";
 import Leaderboard from "./Leaderboard";
 import { setMachineUsername, getMachineUsername } from "../utils/id";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Highscore({
   handleCloseHighscorePopup,
@@ -9,6 +9,7 @@ export default function Highscore({
   setUsername,
 }) {
   const ref = useRef(null);
+  const [displayError, setDisplayError] = useState(false);
   useEffect(() => {
     ref.current.value = getMachineUsername();
   }, []);
@@ -32,16 +33,34 @@ export default function Highscore({
           size="8"
           placeholder="username"
           spellCheck="false"
+          pattern="^[a-zA-Z0-9]+$"
           onChange={(e) => {
             setUsername(e.target.value);
             setMachineUsername(e.target.value);
           }}
         />
-        <button className="share" onClick={() => handleShare()}>
+        <h2
+          className="highscore-error"
+          style={{ display: displayError ? "" : "none" }}
+        >
+          invalid username
+        </h2>
+        <button
+          className="share"
+          onClick={() => {
+            if (ref.current.checkValidity() == false) {
+              console.log(ref.current.validity);
+              setDisplayError(true);
+            } else {
+              handleShare();
+              setDisplayError(false);
+            }
+          }}
+        >
           SHARE!
         </button>
       </div>
-      <Leaderboard isCentered={false}></Leaderboard>
+      {/* <Leaderboard isCentered={false}></Leaderboard> */}
     </div>
   );
 }

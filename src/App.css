@@ -306,6 +306,16 @@ h2 {
   opacity: 0.2;
 }
 
+.highscore-error {
+  color: #d16666;
+  font-size: 15px;
+  font-weight: 800;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
 .share {
   color: #FFF;
   font-family: "Inter", sans-serif;

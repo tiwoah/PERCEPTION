@@ -18,7 +18,7 @@ export default function Leaderboard({ isCentered }) {
       console.error("Error fetching leaderboard data:", error);
     }
   };
-
+  //   fetchLeaderboardData();
   useEffect(() => {
     fetchLeaderboardData();
   }, []);
