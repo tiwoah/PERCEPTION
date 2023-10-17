@@ -5,7 +5,11 @@ import sound_loss from "../assets/loss.mp3";
 import sound_boop from "../assets/boop.mp3";
 import Highscore from "../components/Highscore";
 import { uploadHighscore } from "../utils/api";
-import { getMachineHighscore, setMachineHighscore } from "../utils/id";
+import {
+  getMachineHighscore,
+  getMachineUsername,
+  setMachineHighscore,
+} from "../utils/id";
 
 export default function Game() {
   console.log("Game component rendered");
@@ -18,7 +22,9 @@ export default function Game() {
     getMachineHighscore() ? getMachineHighscore() : "0"
   );
   const [showHighscorePopup, setShowHighscorePopup] = useState(false);
-  const [username, setUsername] = useState("Not a bot");
+  const [username, setUsername] = useState(
+    getMachineUsername() ? getMachineUsername() : ""
+  );
 
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));

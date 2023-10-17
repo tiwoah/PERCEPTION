@@ -59,7 +59,7 @@ function App() {
       height: "0vh",
       background: isAnimationFinished
         ? "radial-gradient(circle, rgba(74,104,65,1) 70%, rgb(71, 97, 62) 100%)"
-        : "radial-gradient(circle, rgba(74,104,65,1) 50%, rgb(51, 72, 45) 90%)",
+        : "radial-gradient(circle, rgba(74,104,65,1) 50%, rgb(36, 51, 32) 90%)",
       transition: {
         height: { duration: 0.8, delay: 2.3, ease: "easeInOut" },
         background: { duration: 0.7, delay: 0.3, ease: "easeInOut" },
