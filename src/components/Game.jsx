@@ -9,6 +9,7 @@ import {
   getMachineHighscore,
   getMachineUsername,
   setMachineHighscore,
+  setMachineUsername,
 } from "../utils/id";
 
 export default function Game() {
@@ -174,9 +175,10 @@ export default function Game() {
       }
     });
 
-    uploadHighscore(username, highscore);
     setUsername(username);
+    setMachineUsername(username);
     setMachineHighscore(highscore);
+    uploadHighscore(username, highscore);
 
     navigator.clipboard.writeText(output);
     setShowHighscorePopup(false);
