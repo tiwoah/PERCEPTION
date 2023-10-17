@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import Start from "../components/Start";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import sound_loss from "../assets/loss.mp3";
 import sound_boop from "../assets/boop.mp3";
 import Highscore from "../components/Highscore";
-import { uploadHighscore, getLeaderboard } from "../utils/api";
-import axios from "axios";
+import { uploadHighscore } from "../utils/api";
+import { getMachineHighscore, setMachineHighscore } from "../utils/id";
 
 export default function Game() {
   console.log("Game component rendered");
@@ -14,7 +14,9 @@ export default function Game() {
   let dead = true;
   const [deadState, setDeadState] = useState(true);
   const [i, setI] = useState(0);
-  const [highscore, setHighscore] = useState(0);
+  const [highscore, setHighscore] = useState(
+    getMachineHighscore() ? getMachineHighscore() : "0"
+  );
   const [showHighscorePopup, setShowHighscorePopup] = useState(false);
   const [username, setUsername] = useState("Not a bot");
 
@@ -154,45 +156,14 @@ export default function Game() {
         i = 0;
       }
     });
-    const d = new Date();
-    let time = d.getTime();
-
-    // const id = time;
-    // console.log(id);
-    // const name = "donquavious";
-    // const score = 34;
-    // e.preventDefault();
-    // const id = getMachineId();
-    // const name = username;
-    // const score = highscore;
 
     uploadHighscore(username, highscore);
+    setUsername(username);
+    setMachineHighscore(highscore);
 
-    // console.log(output);
     navigator.clipboard.writeText(output);
     setShowHighscorePopup(false);
   };
-
-  // useEffect(() => {
-  //   // axios
-  //   //   .get("http://localhost:3001")
-  //   //   .then((result) => setUsers(result.data))
-  //   //   .catch((err) => console.log(err));
-  //   const fetchLeaderboardData = async () => {
-  //     try {
-  //       const leaderboardData = await getLeaderboard();
-  //       // Handle leaderboardData, e.g., set it to state
-  //       setUsers(leaderboardData);
-  //       console.log("Leaderboard data:", leaderboardData);
-  //     } catch (error) {
-  //       // Handle errors
-  //       console.error("Error fetching leaderboard data:", error);
-  //     }
-  //   };
-
-  //   // Call the function when you want to fetch the data
-  //   fetchLeaderboardData();
-  // }, []);
 
   return (
     <>
