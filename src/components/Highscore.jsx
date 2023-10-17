@@ -60,7 +60,7 @@ export default function Highscore({
           SHARE!
         </button>
       </div>
-      {/* <Leaderboard isCentered={false}></Leaderboard> */}
+      <Leaderboard isCentered={false}></Leaderboard>
     </div>
   );
 }
