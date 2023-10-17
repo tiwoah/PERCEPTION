@@ -31,8 +31,7 @@ export default function Game() {
     return new Promise((res) => setTimeout(res, delay));
   }
 
-  let debounce = false;
-  const [debounceState, setDebounceState] = useState(false);
+  let lastClick = Date.now();
 
   const handleNextRound = async (isFirst) => {
     var classes = document.querySelectorAll(".item:not(.selected)");
@@ -42,7 +41,6 @@ export default function Game() {
     });
 
     isFirst ? null : await timeout(400);
-    debounce = false;
     classes.forEach(function (item) {
       item.classList.remove("selected");
     });
@@ -52,18 +50,14 @@ export default function Game() {
     const newestTemp = classes[keys[(keys.length * Math.random()) << 0]];
     setNewest(newestTemp);
 
-    // setDebounceState(false);
     new Audio(sound_boop).play();
     newestTemp.classList.add("selected");
   };
 
   const handleClick = async (event) => {
     if (deadState) return;
-    // console.log(debounce, debounceState);
-    // if (debounce) return;
-    // if (debounceState) return;
-    debounce = true;
-    // setDebounceState(true);
+    if (Date.now() - lastClick < 400) return;
+    lastClick = Date.now();
     if (event.target.classList.contains("item")) {
       if (event.target == newest) {
         handleNextRound();
@@ -86,7 +80,6 @@ export default function Game() {
         });
 
         await timeout(250);
-        debounce = false;
         items.forEach(function (item) {
           item.classList.remove("dead");
         });
